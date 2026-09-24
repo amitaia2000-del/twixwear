@@ -46,7 +46,43 @@ footer{display:flex;justify-content:space-between;padding:30px 5%;color:#666;bor
 .drawer{position:fixed;top:0;right:0;height:100vh;width:min(430px,94vw);background:rgba(10,10,10,.97);border-left:1px solid #2b2b2b;transform:translateX(105%);transition:.3s;z-index:60;padding:25px;backdrop-filter:blur(18px)}.drawer.open{transform:none}.drawer header{display:flex;justify-content:space-between;align-items:center}.close{background:none;border:0;color:#fff;font-size:28px;cursor:pointer}.empty{margin-top:25px;padding:30px;text-align:center;color:#777;border:1px dashed #333;border-radius:14px}.cartitem{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid #222}.checkout{width:100%;margin-top:18px;background:#fff;color:#000;border:0;padding:15px;font-weight:900;border-radius:10px}
 @media(max-width:950px){.navlinks{display:none}.hero,.product{grid-template-columns:1fr}.stage-wrap{min-height:500px}.shopgrid{grid-template-columns:1fr}.hero h1{letter-spacing:-5px}.benefits{grid-template-columns:1fr}.scroll{display:none}}
 </style>
-</head>
+<style>
+.collection-showcase{padding:0 5% 90px}
+.collection-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:28px;gap:20px}
+.collection-head h2{font-size:46px;letter-spacing:-2px;margin:4px 0}
+.collection-head p{color:#777;font-size:12px;letter-spacing:2px}
+.category-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.category-pill{border:1px solid #363636;background:#0e0e0e;color:#ddd;border-radius:999px;padding:9px 14px;font-size:11px;cursor:pointer}
+.category-pill.active,.category-pill:hover{background:#fff;color:#000}
+.catalog-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.catalog-card{background:linear-gradient(145deg,#121212,#090909);border:1px solid var(--line);border-radius:24px;overflow:hidden;transition:.3s;position:relative}
+.catalog-card:hover{transform:translateY(-8px);box-shadow:0 28px 70px rgba(0,0,0,.5)}
+.badge{position:absolute;top:13px;right:13px;z-index:3;font-size:9px;letter-spacing:1px;border:1px solid #555;border-radius:999px;padding:6px 8px;background:rgba(0,0,0,.5);backdrop-filter:blur(8px)}
+.catalog-visual{aspect-ratio:1/1.15;background:radial-gradient(circle at 50% 30%,#2d2d2d,#0a0a0a 65%);display:flex;align-items:center;justify-content:center;position:relative;perspective:900px;overflow:hidden}
+.catalog-visual:after{content:"";position:absolute;width:60%;height:15%;bottom:10%;background:rgba(255,255,255,.06);filter:blur(24px);border-radius:50%}
+.item3d{position:relative;filter:drop-shadow(22px 28px 22px rgba(0,0,0,.65));transform:rotateY(-14deg) rotateX(4deg);transition:.45s;transform-style:preserve-3d}
+.catalog-card:hover .item3d{transform:rotateY(14deg) rotateX(-4deg) translateZ(25px) scale(1.03)}
+.tee3d{width:72%;height:72%;background:linear-gradient(145deg,#1a1a1a,#050505);clip-path:polygon(27% 8%,73% 8%,91% 22%,80% 42%,74% 38%,74% 89%,26% 89%,26% 38%,20% 42%,9% 22%);border:1px solid rgba(255,255,255,.14)}
+.tee3d.light{background:linear-gradient(145deg,#f3f3f3,#cfcfcf)}
+.hoodie3d{width:65%;height:72%;background:linear-gradient(145deg,#1b1b1b,#050505);border-radius:24px 24px 12px 12px;clip-path:polygon(29% 8%,71% 8%,78% 18%,91% 28%,82% 46%,73% 40%,72% 88%,28% 88%,27% 40%,18% 46%,9% 28%,22% 18%);border:1px solid rgba(255,255,255,.14)}
+.hoodie3d:before{content:"";position:absolute;left:32%;top:6%;width:36%;height:16%;border:2px solid #333;border-bottom:0;border-radius:50% 50% 0 0}
+.hoodie3d:after{content:"TWIXWEAR";position:absolute;top:42%;left:50%;transform:translateX(-50%);font-size:13px;letter-spacing:2px;font-weight:1000;color:#fff;white-space:nowrap}
+.pants3d{width:61%;height:76%;position:relative}
+.pants3d:before,.pants3d:after{content:"";position:absolute;top:6%;bottom:0;width:45%;background:linear-gradient(145deg,#1c1c1c,#060606);border:1px solid rgba(255,255,255,.12);border-radius:5px}
+.pants3d:before{left:2%;clip-path:polygon(0 0,100% 0,86% 100%,8% 100%)}
+.pants3d:after{right:2%;clip-path:polygon(0 0,100% 0,92% 100%,14% 100%)}
+.pants3d .waist{position:absolute;left:8%;right:8%;top:0;height:13%;background:#191919;border-radius:7px;z-index:2;border:1px solid rgba(255,255,255,.14)}
+.pants3d .pocket{position:absolute;width:26%;height:18%;border:1px solid #666;top:28%;z-index:3;opacity:.7}
+.pants3d .p1{left:8%}.pants3d .p2{right:8%}
+.cap3d{width:72%;height:45%;position:relative;margin-top:7%;transform:rotateY(-18deg)}
+.cap3d .crown{position:absolute;left:18%;right:18%;top:5%;height:62%;background:linear-gradient(145deg,#202020,#050505);border-radius:55% 55% 28% 28%;border:1px solid rgba(255,255,255,.14)}
+.cap3d .brim{position:absolute;left:5%;right:5%;bottom:12%;height:28%;background:linear-gradient(180deg,#161616,#030303);border-radius:50% 50% 18% 18%;border:1px solid rgba(255,255,255,.14);transform:skewX(-8deg)}
+.cap3d .mark{position:absolute;top:26%;left:50%;transform:translateX(-50%);font-size:20px;font-weight:1000;z-index:3;color:#fff}
+.catalog-info{padding:18px}.catalog-info h3{font-size:16px;margin:0 0 6px}.catalog-info .type{color:#777;font-size:11px}.catalog-info .row{display:flex;justify-content:space-between;align-items:center;margin-top:12px}.catalog-info .price{font-size:18px}.catalog-btn{background:#fff;color:#000;border:0;border-radius:10px;padding:10px 12px;font-weight:900;cursor:pointer}
+.collection-note{margin-top:16px;color:#666;font-size:11px}
+@media(max-width:1100px){.catalog-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.catalog-grid{grid-template-columns:1fr}.collection-head h2{font-size:36px}}
+</style></head>
 <body>
 <div class="topbar">TWIXWEAR · STREETWEAR FOR REAL ONES · DROP 01</div>
 <nav class="nav">
@@ -98,7 +134,24 @@ footer{display:flex;justify-content:space-between;padding:30px 5%;color:#666;bor
 </div>
 </section>
 
-<section class="section" id="about">
+<section class="collection-showcase" id="collection">
+<div class="collection-head"><div><p>NEW DROP · 09 DESIGNS</p><h2>THE TWIXWEAR COLLECTION</h2></div><div class="muted">TEES · HOODIES · PANTS · CAPS</div></div>
+<div class="category-row">
+<button class="category-pill active">ALL</button><button class="category-pill">חולצות</button><button class="category-pill">פוטרים</button><button class="category-pill">מכנסיים</button><button class="category-pill">כובעים</button>
+</div>
+<div class="catalog-grid">
+<article class="catalog-card"><span class="badge">NEW</span><div class="catalog-visual"><div class="item3d tee3d"><div class="print">♛<br><span style="font-size:13px;letter-spacing:2px">TWIXWEAR</span></div></div></div><div class="catalog-info"><h3>TWIXWEAR LOGO TEE</h3><div class="type">חולצה אוברסייז · שחור</div><div class="row"><div class="price">₪129</div><button class="catalog-btn" onclick="document.getElementById('product').scrollIntoView()">למוצר</button></div></div></article>
+<article class="catalog-card"><span class="badge">NEW</span><div class="catalog-visual"><div class="item3d tee3d light"><div class="print" style="color:#111">♛<br><span style="font-size:13px;letter-spacing:2px">TWIXWEAR</span></div></div></div><div class="catalog-info"><h3>TWIX SIGNATURE TEE</h3><div class="type">חולצה אוברסייז · לבן</div><div class="row"><div class="price">₪129</div><button class="catalog-btn" onclick="coming()">בקרוב</button></div></div></article>
+<article class="catalog-card"><span class="badge">NEW</span><div class="catalog-visual"><div class="item3d tee3d"><div class="print"><span style="font-size:22px">TWX</span><br><span style="font-size:10px;letter-spacing:3px">CORE DIVISION</span></div></div></div><div class="catalog-info"><h3>TWX CORE TEE</h3><div class="type">חולצה גרפית · שחור</div><div class="row"><div class="price">₪149</div><button class="catalog-btn" onclick="coming()">בקרוב</button></div></div></article>
+<article class="catalog-card"><span class="badge">NEW</span><div class="catalog-visual"><div class="item3d hoodie3d"></div></div><div class="catalog-info"><h3>TWIXWEAR HOODIE</h3><div class="type">פוטר קפוצ'ון · שחור</div><div class="row"><div class="price">₪249</div><button class="catalog-btn" onclick="coming()">בקרוב</button></div></div></article>
+<article class="catalog-card"><span class="badge">NEW</span><div class="catalog-visual"><div class="item3d hoodie3d" style="background:linear-gradient(145deg,#cfcfcf,#808080)"></div></div><div class="catalog-info"><h3>TWIX BASIC HOODIE</h3><div class="type">פוטר קפוצ'ון · אפור</div><div class="row"><div class="price">₪249</div><button class="catalog-btn" onclick="coming()">בקרוב</button></div></div></article>
+<article class="catalog-card"><span class="badge">DROP 01</span><div class="catalog-visual"><div class="item3d pants3d"><span class="waist"></span><span class="pocket p1"></span><span class="pocket p2"></span></div></div><div class="catalog-info"><h3>TWIXWEAR CARGO PANTS</h3><div class="type">מכנסי קרגו · שחור</div><div class="row"><div class="price">₪229</div><button class="catalog-btn" onclick="coming()">בקרוב</button></div></div></article>
+<article class="catalog-card"><span class="badge">DROP 01</span><div class="catalog-visual"><div class="item3d pants3d"><span class="waist"></span><span class="pocket p1"></span><span class="pocket p2"></span></div></div><div class="catalog-info"><h3>TWIX TECH PANTS</h3><div class="type">מכנס טכני · שחור</div><div class="row"><div class="price">₪249</div><button class="catalog-btn" onclick="coming()">בקרוב</button></div></div></article>
+<article class="catalog-card"><span class="badge">NEW</span><div class="catalog-visual"><div class="item3d cap3d"><div class="crown">TW</div><div class="brim"></div></div></div><div class="catalog-info"><h3>TWIXWEAR CAP</h3><div class="type">כובע מצחייה · שחור</div><div class="row"><div class="price">₪99</div><button class="catalog-btn" onclick="coming()">בקרוב</button></div></div></article>
+<article class="catalog-card"><span class="badge">LIMITED</span><div class="catalog-visual"><div class="item3d cap3d"><div class="crown">TWX</div><div class="brim"></div></div></div><div class="catalog-info"><h3>TWX SIGNATURE CAP</h3><div class="type">כובע מצחייה · שחור</div><div class="row"><div class="price">₪109</div><button class="catalog-btn" onclick="coming()">בקרוב</button></div></div></article>
+</div>
+<div class="collection-note">* המחירים והזמינות בעמוד זה הם תוכן דוגמה שניתן לשנות לפני מכירה אמיתית.</div>
+</section><section class="section" id="about">
 <div class="sizechart" dir="rtl"><div class="lead">FIT GUIDE</div><h2 style="margin:4px 0 15px">מדריך מידות</h2>
 <table><tr><th>מידה</th><th>אורך</th><th>חזה</th></tr><tr><td>S</td><td>70</td><td>52</td></tr><tr><td>M</td><td>72</td><td>54</td></tr><tr><td>L</td><td>74</td><td>56</td></tr><tr><td>XL</td><td>76</td><td>58</td></tr><tr><td>XXL</td><td>78</td><td>60</td></tr></table>
 <p style="color:#666">המידות בס"מ.</p></div>
@@ -117,5 +170,7 @@ function openCart(){document.getElementById('drawer').classList.add('open')}
 function closeCart(){document.getElementById('drawer').classList.remove('open')}
 function coming(){alert('המוצר יתווסף ל-DROP בקרוב')}
 const stage=document.getElementById('stage');stage.addEventListener('pointermove',e=>{const r=stage.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;stage.style.transform='rotateX('+(-y*10)+'deg) rotateY('+(x*14)+'deg)';});stage.addEventListener('pointerleave',()=>stage.style.transform='rotateX(0) rotateY(0)');
+
+document.querySelectorAll('.category-pill').forEach((b)=>b.addEventListener('click',()=>{document.querySelectorAll('.category-pill').forEach(x=>x.classList.remove('active'));b.classList.add('active')}));
 </script>
 </body></html>
