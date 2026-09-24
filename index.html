@@ -85,12 +85,50 @@ footer{display:flex;justify-content:space-between;padding:30px 5%;color:#666;bor
 </style><style>
 .color-section{padding:90px 5% 20px}.color-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:28px}.color-head h2{font-size:44px;letter-spacing:-2px;margin:5px 0}.color-head .sub{font-size:11px;color:#777;letter-spacing:2px}.color-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}.color-card{background:linear-gradient(145deg,#121212,#090909);border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:.28s}.color-card:hover{transform:translateY(-6px);box-shadow:0 25px 55px rgba(0,0,0,.45)}.color-preview{aspect-ratio:1/1.12;display:flex;align-items:center;justify-content:center;position:relative;background:radial-gradient(circle at 50% 28%,#2b2b2b,#090909 65%);perspective:850px}.color-preview .pants-model{width:68%;height:75%;position:relative;transform:rotateY(-16deg) rotateX(3deg);filter:drop-shadow(18px 22px 16px rgba(0,0,0,.6));transition:.4s}.color-card:hover .pants-model{transform:rotateY(14deg) rotateX(-3deg) translateZ(18px)}.pants-leg{position:absolute;bottom:0;width:43%;height:84%;background:var(--item,#171717);border:1px solid rgba(255,255,255,.12);border-radius:6px 6px 13px 13px}.pants-leg.left{left:3%;clip-path:polygon(3% 0,97% 0,86% 100%,12% 100%)}.pants-leg.right{right:3%;clip-path:polygon(3% 0,97% 0,88% 100%,14% 100%)}.pants-waist{position:absolute;left:6%;right:6%;top:0;height:19%;background:var(--item,#171717);border:1px solid rgba(255,255,255,.13);border-radius:8px;z-index:2}.pants-pocket{position:absolute;top:27%;width:28%;height:18%;border:1px solid rgba(255,255,255,.32);z-index:4;border-radius:3px}.pants-pocket.a{left:7%}.pants-pocket.b{right:7%}.pants-logo{position:absolute;top:48%;left:50%;transform:translateX(-50%);z-index:5;color:#fff;font-size:9px;letter-spacing:1px;font-weight:1000;white-space:nowrap}.color-preview .cap-model{width:72%;height:55%;position:relative;transform:rotateY(-16deg);filter:drop-shadow(18px 20px 15px rgba(0,0,0,.6));transition:.4s}.color-card:hover .cap-model{transform:rotateY(14deg) translateZ(18px)}.cap-top{position:absolute;left:15%;right:15%;top:0;height:70%;background:var(--item,#111);border:1px solid rgba(255,255,255,.13);border-radius:50% 50% 30% 30%}.cap-brim{position:absolute;left:4%;right:4%;bottom:0;height:36%;background:var(--item,#111);border:1px solid rgba(255,255,255,.13);border-radius:55% 55% 20% 20%;transform:skewX(-8deg)}.cap-mark{position:absolute;left:50%;top:25%;transform:translateX(-50%);z-index:3;font-size:16px;font-weight:1000;color:#fff}.swatches{display:flex;gap:7px;position:absolute;bottom:10px;left:10px;z-index:8}.sw{width:12px;height:12px;border-radius:50%;border:1px solid #aaa;cursor:pointer}.sw.black{background:#080808}.sw.gray{background:#777}.sw.olive{background:#48513f}.sw.sand{background:#cfc0a5}.sw.white{background:#f1f1f1}.sw.burgundy{background:#5c252c}.color-body{padding:15px}.color-body h3{font-size:13px;margin:0 0 5px}.color-body p{color:#777;font-size:10px;margin:0}.color-price{display:flex;justify-content:space-between;align-items:center;margin-top:10px}.color-price strong{font-size:16px}.color-add{background:#fff;color:#000;border:0;border-radius:9px;padding:9px 10px;font-weight:900;cursor:pointer}
 @media(max-width:1200px){.color-grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:650px){.color-grid{grid-template-columns:repeat(2,1fr)}.color-head h2{font-size:34px}}
+</style><style>
+/* REALISTIC APPAREL UPGRADE */
+.tshirt-shell,.tee3d,.hoodie3d,.pants-leg,.pants-waist,.cap-top,.cap-brim{
+  background-image:
+    repeating-linear-gradient(0deg,rgba(255,255,255,.018) 0,rgba(255,255,255,.018) 1px,transparent 1px,transparent 4px),
+    linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,0) 24%,rgba(0,0,0,.40) 82%),
+    linear-gradient(145deg,var(--garment,#151515),#030303 74%);
+}
+.tshirt-shell:after,.tee3d:after{
+  content:"";position:absolute;inset:18% 10% 8%;
+  border-radius:10% 10% 5% 5%;
+  background:linear-gradient(105deg,transparent 0 35%,rgba(255,255,255,.035) 46%,transparent 60%);
+  pointer-events:none;
+}
+.tshirt-shell .print,.tee3d .print{filter:drop-shadow(0 1px 1px rgba(0,0,0,.55))}
+.tee3d.light{
+  background-image:
+    repeating-linear-gradient(0deg,rgba(0,0,0,.018) 0,rgba(0,0,0,.018) 1px,transparent 1px,transparent 4px),
+    linear-gradient(145deg,#fff,#c8c8c8 72%);
+}
+.hoodie3d:after{filter:drop-shadow(0 1px 1px rgba(0,0,0,.85))}
+.pants-leg{background-image:
+  repeating-linear-gradient(90deg,rgba(255,255,255,.018) 0,rgba(255,255,255,.018) 1px,transparent 1px,transparent 5px),
+  linear-gradient(165deg,rgba(255,255,255,.09),transparent 30%,rgba(0,0,0,.48) 85%),
+  linear-gradient(145deg,var(--item,#171717),#050505 75%)}
+.pants-pocket:before,.pants-pocket:after{
+  content:"";position:absolute;background:rgba(0,0,0,.22);border-radius:2px
+}
+.pants-pocket:before{inset:3px 4px auto;height:2px}
+.pants-pocket:after{left:9%;right:9%;bottom:10%;height:1px;background:rgba(255,255,255,.16)}
+.cap-top,.cap-brim{background-image:
+  repeating-linear-gradient(0deg,rgba(255,255,255,.02) 0,rgba(255,255,255,.02) 1px,transparent 1px,transparent 4px),
+  linear-gradient(145deg,rgba(255,255,255,.09),transparent 34%,rgba(0,0,0,.40) 80%),
+  linear-gradient(145deg,var(--item,#111),#030303 76%)}
+.cap-top:after{
+  content:"";position:absolute;left:12%;right:12%;top:10%;height:1px;background:rgba(255,255,255,.15);box-shadow:0 11px 0 rgba(255,255,255,.06),0 22px 0 rgba(255,255,255,.04)
+}
+@media(max-width:700px){.product-visual{min-height:500px}}
 </style></head>
 <body>
 <div class="topbar">TWIXWEAR · STREETWEAR FOR REAL ONES · DROP 01</div>
 <nav class="nav">
 <a class="logo" href="#">TWIXWEAR</a>
-<div class="navlinks"><a href="#shop">SHOP</a><a href="#product">PRODUCT</a><a href="#about">ABOUT</a></div>
+<div class="navlinks"><a href="#shop">SHOP</a><a href="#product">PRODUCT</a><a href="#realistic">3D REAL</a><a href="#about">ABOUT</a></div>
 <button class="cart" onclick="openCart()">🛒 סל · <span id="count">0</span></button>
 </nav>
 
@@ -166,6 +204,12 @@ footer{display:flex;justify-content:space-between;padding:30px 5%;color:#666;bor
 <div class="color-grid">
 <article class="color-card"><div class="color-preview" style="--item:#090909"><div class="cap-model"><div class="cap-top"></div><div class="cap-brim"></div><div class="cap-mark">TW</div></div><div class="swatches"><span class="sw black"></span><span class="sw white"></span><span class="sw sand"></span><span class="sw olive"></span><span class="sw burgundy"></span></div></div><div class="color-body"><h3>TWIX CLASSIC · שחור</h3><p>כובע מצחייה · רקמת TWX</p><div class="color-price"><strong>₪99</strong><button class="color-add" onclick="coming()">הוסף לסל</button></div></div></article><article class="color-card"><div class="color-preview" style="--item:#e7e7e7"><div class="cap-model"><div class="cap-top"></div><div class="cap-brim"></div><div class="cap-mark">TW</div></div><div class="swatches"><span class="sw black"></span><span class="sw white"></span><span class="sw sand"></span><span class="sw olive"></span><span class="sw burgundy"></span></div></div><div class="color-body"><h3>TWIX CLASSIC · לבן</h3><p>כובע מצחייה · רקמת TWX</p><div class="color-price"><strong>₪99</strong><button class="color-add" onclick="coming()">הוסף לסל</button></div></div></article><article class="color-card"><div class="color-preview" style="--item:#c9baa3"><div class="cap-model"><div class="cap-top"></div><div class="cap-brim"></div><div class="cap-mark">TW</div></div><div class="swatches"><span class="sw black"></span><span class="sw white"></span><span class="sw sand"></span><span class="sw olive"></span><span class="sw burgundy"></span></div></div><div class="color-body"><h3>TWX CLASSIC · בז'</h3><p>כובע מצחייה · רקמת TWX</p><div class="color-price"><strong>₪99</strong><button class="color-add" onclick="coming()">הוסף לסל</button></div></div></article><article class="color-card"><div class="color-preview" style="--item:#3f5543"><div class="cap-model"><div class="cap-top"></div><div class="cap-brim"></div><div class="cap-mark">TW</div></div><div class="swatches"><span class="sw black"></span><span class="sw white"></span><span class="sw sand"></span><span class="sw olive"></span><span class="sw burgundy"></span></div></div><div class="color-body"><h3>TWX CLASSIC · ירוק</h3><p>כובע מצחייה · רקמת TWX</p><div class="color-price"><strong>₪99</strong><button class="color-add" onclick="coming()">הוסף לסל</button></div></div></article><article class="color-card"><div class="color-preview" style="--item:#666"><div class="cap-model"><div class="cap-top"></div><div class="cap-brim"></div><div class="cap-mark">TW</div></div><div class="swatches"><span class="sw black"></span><span class="sw white"></span><span class="sw sand"></span><span class="sw olive"></span><span class="sw burgundy"></span></div></div><div class="color-body"><h3>TWIX TRUCKER · אפור</h3><p>כובע מצחייה · רקמת TWX</p><div class="color-price"><strong>₪109</strong><button class="color-add" onclick="coming()">הוסף לסל</button></div></div></article><article class="color-card"><div class="color-preview" style="--item:#5b252c"><div class="cap-model"><div class="cap-top"></div><div class="cap-brim"></div><div class="cap-mark">TW</div></div><div class="swatches"><span class="sw black"></span><span class="sw white"></span><span class="sw sand"></span><span class="sw olive"></span><span class="sw burgundy"></span></div></div><div class="color-body"><h3>TWX TRUCKER · בורדו</h3><p>כובע מצחייה · רקמת TWX</p><div class="color-price"><strong>₪109</strong><button class="color-add" onclick="coming()">הוסף לסל</button></div></div></article>
 </div>
+</section><section class="section" id="realistic">
+  <div style="border:1px solid var(--line);border-radius:28px;padding:34px;background:linear-gradient(145deg,#151515,#080808);position:relative;overflow:hidden">
+    <div class="eyebrow">REALISTIC STREETWEAR</div>
+    <h2 style="margin:8px 0 10px;font-size:42px">בדים, קפלים ופרטים אמיתיים</h2>
+    <p style="max-width:760px;color:#999;line-height:1.8;margin:0">כל פריטי הקולקציה קיבלו עכשיו מראה לביש וריאליסטי יותר: טקסטורת בד, תפרים, קפלים, הצללות, כיסים וגימורי חומר — כדי להרגיש כמו בגדים אמיתיים ולא כמו אייקונים.</p>
+  </div>
 </section><section class="section" id="about">
 <div class="sizechart" dir="rtl"><div class="lead">FIT GUIDE</div><h2 style="margin:4px 0 15px">מדריך מידות</h2>
 <table><tr><th>מידה</th><th>אורך</th><th>חזה</th></tr><tr><td>S</td><td>70</td><td>52</td></tr><tr><td>M</td><td>72</td><td>54</td></tr><tr><td>L</td><td>74</td><td>56</td></tr><tr><td>XL</td><td>76</td><td>58</td></tr><tr><td>XXL</td><td>78</td><td>60</td></tr></table>
